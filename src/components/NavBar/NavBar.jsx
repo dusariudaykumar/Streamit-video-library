@@ -1,5 +1,6 @@
 import { BiSearchAlt2, BiBell, BiMenu } from "react-icons/bi";
 import logoImg from "../../asserts/logo.png";
+import userAvatar from "../../asserts/user.jpg";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 const NavBar = () => {
@@ -26,7 +27,7 @@ const NavBar = () => {
         <div className="avatar-container">
           <img
             className="avatar-sm-size avatar-circle"
-            src="https://avatars.githubusercontent.com/u/78147748?v=4"
+            src={userAvatar}
             alt="avatar"
           />
           <span className="user-name">Uday Kumar</span>
