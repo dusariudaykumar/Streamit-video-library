@@ -70,11 +70,64 @@
   background-color: var(--badge-color);
 }
 .avatar-container {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+}
+.avatar-circle {
   cursor: pointer;
 }
 .user-name {
+  color: var(--white);
+  cursor: pointer;
+}
+.user-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.user-dropdown-menu {
+  position: absolute;
+  top: 3.4rem;
+  background-color: var(--light-black);
+  width: 10rem;
+}
+.menu-bar {
+  display: flex;
+  flex-direction: column;
+}
+.user-menu-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  padding: 10px;
+  font-size: 1.2rem;
+}
+.user-menu-item:hover {
+  background-color: var(--sidenav-hover);
+}
+
+.user-menu-item span {
+  cursor: pointer;
+}
+.logout-icon,
+.profile-icon,
+.login-icon {
+  color: var(--nav-icon-color);
+}
+.logout-icon:hover,
+.profile-icon:hover,
+.login-icon:hover {
+  color: var(--primary-hover);
+}
+.login-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.3rem;
+  color: var(--light-gray);
+  cursor: pointer;
+  font-weight: 500;
+}
+.login-container span:hover {
   color: var(--white);
 }
