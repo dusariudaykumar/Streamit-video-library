@@ -101,3 +101,19 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+/* 
+  - to change background color of autocomplete
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--white);
+  -webkit-box-shadow: 0 0 0px 1000px var(--body-bg) inset;
+  box-shadow: 0 0 0px 1000px var(--body-bg) inset;
+}
+
+.dark-toast {
+  background-color: var(--body-bg);
+  top: 2.3rem;
+}

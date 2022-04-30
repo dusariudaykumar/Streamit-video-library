@@ -2,6 +2,7 @@
 :root {
   --primary: #bf000a;
   --primary-hover: #bf000a;
+  --nav-icon-color: #e50914;
   --light-primary: #d7d3f8;
   --placeholder: #d9d5d5;
   --secondary: #6c757d;
@@ -48,4 +49,7 @@
 body {
   background-color: var(--body-bg);
   font-family: "Roboto", sans-serif;
+}
+ul li {
+  list-style: none;
 }
