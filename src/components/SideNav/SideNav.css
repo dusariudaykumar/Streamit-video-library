@@ -6,16 +6,13 @@
   padding: 10px;
   height: 100vh;
 }
-/* .nav-items:hover {
-  background-color: var(--sidenav-hover);
-} */
 .nav-pill {
   color: var(--white);
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1.3rem;
-  font-family: 1.1rem;
+  font-size: 1.1rem;
   padding: 10px 1rem;
   letter-spacing: 1px;
   width: 100%;
@@ -24,5 +21,11 @@
   background-color: var(--sidenav-hover);
 }
 .nav-pill:active {
+  background-color: var(--sidenav-hover);
+}
+.active {
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 600;
   background-color: var(--sidenav-hover);
 }

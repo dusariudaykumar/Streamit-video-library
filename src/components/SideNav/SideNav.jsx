@@ -12,63 +12,59 @@ const SideNav = () => {
     <aside className="side-nav">
       <ul className="nav-items">
         <li>
-          <NavLink to="/">
-            <div className="nav-pill">
-              <FaHome className="home-icon" size="2rem" color="white" />
-              <span>Home</span>
-            </div>
+          <NavLink to="/" exact activeClassName="active" className="nav-pill">
+            <FaHome className="home-icon" size="2rem" />
+            <span>Home</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
-            <div className="nav-pill">
-              <FaRegCompass className="home-icon" size="2rem" color="white" />
-              <span>Explore</span>
-            </div>
+          <NavLink
+            to="/explore"
+            exact
+            activeClassName="active"
+            className="nav-pill">
+            <FaRegCompass className="home-icon" size="2rem" />
+            <span>Explore</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
-            <div className="nav-pill">
-              <MdOutlineSubscriptions
-                className="home-icon"
-                size="2rem"
-                color="white"
-              />
-              <span>Playlist</span>
-            </div>
+          <NavLink
+            to="/playlist"
+            exact
+            activeClassName="active"
+            className="nav-pill">
+            <MdOutlineSubscriptions className="home-icon" size="2rem" />
+            <span>Playlist</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
-            <div className="nav-pill">
-              <MdOutlineWatchLater
-                className="home-icon"
-                size="2rem"
-                color="white"
-              />
-              <span>Watch Later</span>
-            </div>
+          <NavLink
+            to="/watchlater"
+            exact
+            activeClassName="active"
+            className="nav-pill">
+            <MdOutlineWatchLater className="home-icon" size="2rem" />
+            <span>Watch Later</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
-            <div className="nav-pill">
-              <BiLike className="home-icon" size="2rem" color="white" />
-              <span>Liked Videos</span>
-            </div>
+          <NavLink
+            to="/likedvideos"
+            exact
+            activeClassName="active"
+            className="nav-pill">
+            <BiLike className="home-icon" size="2rem" />
+            <span>Liked Videos</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
-            <div className="nav-pill">
-              <MdOutlineHistory
-                className="home-icon"
-                size="2rem"
-                color="white"
-              />
-              <span>Histroy</span>
-            </div>
+          <NavLink
+            to="/histroy"
+            exact
+            activeClassName="active"
+            className="nav-pill">
+            <MdOutlineHistory className="home-icon" size="2rem" />
+            <span>Histroy</span>
           </NavLink>
         </li>
       </ul>
