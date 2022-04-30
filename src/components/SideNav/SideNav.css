@@ -1,0 +1,28 @@
+.side-nav {
+  grid-column: 1 / span 1;
+  grid-row: 2/-1;
+  background-color: var(--light-black);
+  width: 16rem;
+  padding: 10px;
+  height: 100vh;
+}
+/* .nav-items:hover {
+  background-color: var(--sidenav-hover);
+} */
+.nav-pill {
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.3rem;
+  font-family: 1.1rem;
+  padding: 10px 1rem;
+  letter-spacing: 1px;
+  width: 100%;
+}
+.nav-pill:hover {
+  background-color: var(--sidenav-hover);
+}
+.nav-pill:active {
+  background-color: var(--sidenav-hover);
+}

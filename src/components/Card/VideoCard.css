@@ -1,0 +1,64 @@
+.card-container {
+  max-width: 20rem;
+  background-color: var(--card-bg);
+  height: 22rem;
+  color: var(--white);
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+}
+.img-container {
+  margin-bottom: 1rem;
+  position: relative;
+}
+.video-img {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.card-time-stamp {
+  position: absolute;
+  background-color: var(--black);
+  bottom: 0;
+  right: 0px;
+  padding: 3px;
+}
+.card-info-wrapper {
+  justify-content: center;
+  gap: 10px;
+  padding-left: 4px;
+}
+.card-discription {
+  font-size: 13px;
+  line-height: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  text-align: left;
+  max-height: 5rem;
+  min-height: 5rem;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.video-creator {
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--card-text-color);
+}
+.video-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 11px;
+  color: var(--card-text-color);
+  font-weight: 500;
+}
+.views-info::after {
+  content: ".";
+}
+
+.time-period {
+}

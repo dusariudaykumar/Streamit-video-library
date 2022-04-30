@@ -1,0 +1,103 @@
+.auth-wrapper {
+  background: linear-gradient(
+      90deg,
+      var(--body-bg),
+      var(--form-background-color)
+    ),
+    url("../../asserts/login-bg-1.jpg") no-repeat scroll 0 0;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.login-wrapper,
+.signup-wrapper {
+  width: 30rem;
+  height: 23rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--black);
+  backdrop-filter: blur(4px);
+  background-color: var(--form-background-color);
+  box-shadow: 0rem 0 1.25rem 0 rgb(0 0 0 /50%);
+  color: var(--white);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.email-feild,
+.pwd-feild {
+  padding: 6px;
+  width: 20rem;
+  outline: none;
+  border: none;
+  background-color: var(--body-bg);
+  border: 1px solid #404043;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+.email-feild:focus,
+.pwd-feild:focus {
+  border: 1px solid var(--primary);
+}
+.login-btn-primary,
+.signup-btn-primary {
+  outline: none;
+  padding: 10px 13px;
+  font-size: 1.2rem;
+  color: var(--white);
+  background-color: var(--primary-hover);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login-btn-primary:hover,
+.signup-btn-primary:hover {
+  opacity: 90%;
+}
+.login-btn-outline {
+  outline: none;
+  border: 1px solid var(--primary-hover);
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: var(--white);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.login-btn-outline:hover {
+  background-color: var(--primary-hover);
+}
+.page-link {
+  color: var(--primary);
+}
+
+/* Signup */
+.signup-wrapper {
+  height: max-content;
+  padding: 2rem;
+}
+.signup-btn-primary {
+  margin-bottom: 1rem;
+}
+.signup-label {
+  align-self: flex-start;
+  font-size: 1.2rem;
+  font-weight: 600;
+}

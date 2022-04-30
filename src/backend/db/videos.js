@@ -5,17 +5,72 @@
 
 export const videos = [
   {
-    _id: "Wo5dMEP_BbI",
-    title: "Awesome Video about Coding",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
-    creator: "Soham Shah",
+    _id: "6Xwcspy3Cdk",
+    title: "Apex Legends - Saviors Launch Trailer | PS4 Games",
+    creator: "PlayStation",
+    description: "",
+    views: "14K",
+    categoryName: "Trailer",
   },
   {
-    _id: "F_Riqjdh2oM",
-    title: "Neural Networks from Scratch - P.1 Intro and Neuron Code",
-    creator: "Sentdex",
-    description:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+    _id: "tV95N0TIltc",
+    title: "Grand Theft Auto V and GTA Online - Launch Trailer | PS5",
+    creator: "PlayStation",
+    description: "",
+    views: "292K",
+    categoryName: "Trailer",
+  },
+  {
+    _id: "d5nfXqffvyc",
+    title: "UNCHARTED 4: A Thief's End - Madagascar Preview | PS4",
+    creator: "PlayStation",
+    description: "",
+    views: "10M",
+    categoryName: "PS4 Games",
+  },
+  {
+    _id: "EE-4GvjKcfs",
+    title:
+      "God Of War Ragnarok - PlayStation Showcase 2021 Reveal Trailer | PS5",
+    creator: "PlayStation",
+    description: "",
+    views: "12M",
+    categoryName: "Trailer",
+  },
+  {
+    _id: "0Mlv72oV1y4",
+    title: "Ultimate PlayStation 5 Gaming Setup Guide",
+    creator: "Digital Trends",
+    description: "",
+    views: "1.2M",
+    categoryName: "Setup Guide",
+  },
+
+  {
+    _id: "zrROdKbBX3k",
+    title: "Marvel's Avengers PS5 - Iron Man Gameplay (Avengers: Endgame Suit)",
+    creator: "ynSection",
+    description: "",
+    views: "4M",
+    categoryName: "Gameplay",
+  },
+
+  {
+    _id: "wQATS4HOxdo",
+    title: "Horizon Forbidden West - State of Play Gameplay Reveal | PS5",
+    creator: "Play station",
+    description: "",
+    views: "9.9M",
+    categoryName: "Gameplay",
+  },
+
+  {
+    _id: "FlsmdLwUAQg",
+    title:
+      "FIFA 22 - Arsenal vs. Man United - Premier League Full Match PS5 Gameplay | 4K",
+    creator: "MJ7",
+    description: "",
+    views: "25k",
+    categoryName: "Gameplay",
   },
 ];
