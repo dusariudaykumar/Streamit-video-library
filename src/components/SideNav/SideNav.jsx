@@ -12,27 +12,19 @@ const SideNav = () => {
     <aside className="side-nav">
       <ul className="nav-items">
         <li>
-          <NavLink to="/" exact activeClassName="active" className="nav-pill">
+          <NavLink to="/" activeclassname="active" className="nav-pill">
             <FaHome className="home-icon" size="2rem" />
             <span>Home</span>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/explore"
-            exact
-            activeClassName="active"
-            className="nav-pill">
+          <NavLink to="/explore" activeclassname="active" className="nav-pill">
             <FaRegCompass className="home-icon" size="2rem" />
             <span>Explore</span>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/playlist"
-            exact
-            activeClassName="active"
-            className="nav-pill">
+          <NavLink to="/playlist" activeclassname="active" className="nav-pill">
             <MdOutlineSubscriptions className="home-icon" size="2rem" />
             <span>Playlist</span>
           </NavLink>
@@ -40,8 +32,7 @@ const SideNav = () => {
         <li>
           <NavLink
             to="/watchlater"
-            exact
-            activeClassName="active"
+            activeclassname="active"
             className="nav-pill">
             <MdOutlineWatchLater className="home-icon" size="2rem" />
             <span>Watch Later</span>
@@ -50,19 +41,14 @@ const SideNav = () => {
         <li>
           <NavLink
             to="/likedvideos"
-            exact
-            activeClassName="active"
+            activeclassname="active"
             className="nav-pill">
             <BiLike className="home-icon" size="2rem" />
             <span>Liked Videos</span>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/histroy"
-            exact
-            activeClassName="active"
-            className="nav-pill">
+          <NavLink to="/histroy" activeclassname="active" className="nav-pill">
             <MdOutlineHistory className="home-icon" size="2rem" />
             <span>Histroy</span>
           </NavLink>
