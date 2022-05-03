@@ -4,7 +4,6 @@ import "./HomePage.css";
 const HomePage = () => {
   const {
     videoState: { videos },
-    videoDispatch,
   } = useVideo();
   return (
     <div className="home-page-wrapper">
