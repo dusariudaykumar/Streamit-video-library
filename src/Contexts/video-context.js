@@ -16,7 +16,7 @@ const VideoProvider = ({ children }) => {
         const {
           data: { videos },
         } = await getVideosService();
-        console.log(videos);
+
         videoDispatch({ type: "INIT_VIDEOS", payload: videos });
       } catch (error) {
         console.log(error.message);
