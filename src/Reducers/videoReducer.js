@@ -5,5 +5,7 @@ export const videoReducer = (state, { type, payload }) => {
         ...state,
         videos: payload,
       };
+    default:
+      return state;
   }
 };
