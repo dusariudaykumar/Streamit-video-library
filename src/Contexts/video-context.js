@@ -1,6 +1,6 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 import { videoReducer } from "../Reducers";
-import { getVideosService } from "../Services";
+import { getCategories, getVideosService } from "../Services";
 
 const initialState = {
   videos: [],
@@ -25,6 +25,20 @@ const VideoProvider = ({ children }) => {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const {
+          data: { categories },
+        } = await getCategories();
+        videoDispatch({ type: "CATEGORIES", payload: categories });
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
+  }, []);
+
   return (
     <VideoContext.Provider value={{ videoState, videoDispatch }}>
       {children}

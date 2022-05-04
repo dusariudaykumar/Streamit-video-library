@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { VideoCard } from "../../components";
 import { useVideo } from "../../Contexts";
-import { getCategories } from "../../Services";
 import { filterByCategories } from "../../Utils/filterByCategories";
 import "./ExplorePage.css";
 const ExplorePage = () => {
@@ -10,18 +8,6 @@ const ExplorePage = () => {
     videoState: { categories, videos, categoryName },
   } = useVideo();
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const {
-          data: { categories },
-        } = await getCategories();
-        videoDispatch({ type: "CATEGORIES", payload: categories });
-      } catch (error) {
-        console.log(error.message);
-      }
-    })();
-  }, []);
   const filteredVideos = filterByCategories(categoryName, videos);
   return (
     <div>
