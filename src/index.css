@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 :root {
-  --primary: #bf000a;
+  --primary: #e50914;
   --primary-hover: #bf000a;
   --nav-icon-color: #e50914;
   --light-primary: #d7d3f8;
@@ -16,6 +16,9 @@
   --sidenav-hover: #383838;
   --card-bg: #1c1c1c;
   --card-text-color: #aaaaaa;
+  --chip-color: #373737;
+  --chip-border: rgba(255, 255, 255, 0.1);
+  --chip-hover: rgba(255, 255, 255, 0.2);
   /* footer */
   --bg1: #191919;
   --body-border: #393750;
