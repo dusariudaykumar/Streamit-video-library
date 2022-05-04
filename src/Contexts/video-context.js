@@ -4,6 +4,8 @@ import { getVideosService } from "../Services";
 
 const initialState = {
   videos: [],
+  categories: [],
+  categoryName: "All",
 };
 const VideoContext = createContext();
 
