@@ -12,43 +12,37 @@ const SideNav = () => {
     <aside className="side-nav">
       <ul className="nav-items">
         <li>
-          <NavLink to="/" activeclassname="active" className="nav-pill">
+          <NavLink to="/" className="nav-pill">
             <FaHome className="home-icon" size="2rem" />
             <span>Home</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/explore" activeclassname="active" className="nav-pill">
+          <NavLink to="/explore" className="nav-pill">
             <FaRegCompass className="home-icon" size="2rem" />
             <span>Explore</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/playlist" activeclassname="active" className="nav-pill">
+          <NavLink to="/playlist" className="nav-pill">
             <MdOutlineSubscriptions className="home-icon" size="2rem" />
             <span>Playlist</span>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/watchlater"
-            activeclassname="active"
-            className="nav-pill">
+          <NavLink to="/watchlater" className="nav-pill">
             <MdOutlineWatchLater className="home-icon" size="2rem" />
             <span>Watch Later</span>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/likedvideos"
-            activeclassname="active"
-            className="nav-pill">
+          <NavLink to="/likedvideos" className="nav-pill">
             <BiLike className="home-icon" size="2rem" />
             <span>Liked Videos</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/histroy" activeclassname="active" className="nav-pill">
+          <NavLink to="/histroy" className="nav-pill">
             <MdOutlineHistory className="home-icon" size="2rem" />
             <span>Histroy</span>
           </NavLink>
