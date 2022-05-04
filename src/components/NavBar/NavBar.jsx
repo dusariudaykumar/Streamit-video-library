@@ -18,7 +18,7 @@ const NavBar = () => {
   const {
     authState: { isAuth, userData },
   } = useAuth();
-  console.log(userData);
+
   const logoutHandler = () => {
     localStorage.clear();
     navigate(0);
