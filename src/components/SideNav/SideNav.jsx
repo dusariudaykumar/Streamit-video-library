@@ -36,7 +36,7 @@ const SideNav = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/likedvideos" className="nav-pill">
+          <NavLink to="/likes" className="nav-pill">
             <BiLike className="home-icon" size="2rem" />
             <span>Liked Videos</span>
           </NavLink>
