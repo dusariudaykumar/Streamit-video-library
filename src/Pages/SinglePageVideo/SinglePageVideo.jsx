@@ -1,15 +1,40 @@
 import { useParams } from "react-router-dom";
-import { BiLike, BiDislike } from "react-icons/bi";
+import { HiThumbUp, HiOutlineThumbUp } from "react-icons/hi";
 import { useVideo } from "../../Contexts/video-context";
 import "./SinglePageVideo.css";
+import { useAuth, useData } from "../../Contexts";
+import { addLikeToVideos, removeLikeFromVideo } from "../../Services";
+import { findVideo } from "../../Utils/findVideo";
 const SinglePageVideo = () => {
   const { videoId } = useParams();
   const {
     videoState: { videos },
   } = useVideo();
-
-  const videoDetails = videos.find((video) => video._id === videoId);
-
+  const {
+    authState: { encodedToken },
+  } = useAuth();
+  const {
+    dataState: { likes },
+  } = useData();
+  const { dataDispatch } = useData();
+  const videoDetails = findVideo(videoId, videos);
+  const addLikeHandler = async (video) => {
+    try {
+      const {
+        data: { likes },
+      } = await addLikeToVideos(encodedToken, video);
+      dataDispatch({ type: "LIKE_VIDEO", payload: likes });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const isLiked = findVideo(videoId, likes) ? true : false;
+  const removeLikeHandler = async (videoId) => {
+    const {
+      data: { likes },
+    } = await removeLikeFromVideo(encodedToken, videoId);
+    dataDispatch({ type: "REMOVE_LIKE", payload: likes });
+  };
   return (
     <div className="single-page-wrapper">
       <iframe
@@ -24,12 +49,23 @@ const SinglePageVideo = () => {
         <div className="video-title">{videoDetails?.title} </div>
         <div className="video-details-wrapper">
           <div className="video-creator-details">
-            <span>{videoDetails?.creator} .</span>
+            <span>{videoDetails?.creator} ●</span>
             <span>{videoDetails?.published}</span>
           </div>
           <div className="icons-wrapper">
-            <BiLike size="2rem" className="like-icon" />
-            <BiDislike size="2rem" className="dislike-icon" />
+            {isLiked ? (
+              <HiThumbUp
+                size="2rem"
+                className="like-icon"
+                onClick={() => removeLikeHandler(videoId)}
+              />
+            ) : (
+              <HiOutlineThumbUp
+                size="2rem"
+                className="like-icon"
+                onClick={() => addLikeHandler(videoDetails)}
+              />
+            )}
           </div>
         </div>
       </div>
