@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { VideoCard } from "../../components";
 import { useAuth, useVideo, useData } from "../../Contexts";
+import { useToast } from "../../custom-hooks/useToast";
 import { addVideoToWatchLater } from "../../Services";
 import "./HomePage.css";
 const HomePage = () => {
+  const navigate = useNavigate();
+  const { showToast } = useToast();
   const {
     videoState: { videos },
   } = useVideo();
@@ -17,7 +21,11 @@ const HomePage = () => {
         data: { watchlater },
       } = await addVideoToWatchLater(encodedToken, video);
       dataDispatch({ type: "ADD_TO_WATCH_LATER", payload: watchlater });
+      showToast("Added to Watchlater", "success");
     } catch (error) {
+      if (error.request.status === 500) {
+        navigate("/login");
+      }
       console.log(error.message);
     }
   };

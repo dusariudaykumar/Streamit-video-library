@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { HiThumbUp, HiOutlineThumbUp } from "react-icons/hi";
 import { useVideo } from "../../Contexts/video-context";
 import "./SinglePageVideo.css";
@@ -6,6 +6,7 @@ import { useAuth, useData } from "../../Contexts";
 import { addLikeToVideos, removeLikeFromVideo } from "../../Services";
 import { findVideo } from "../../Utils/findVideo";
 const SinglePageVideo = () => {
+  const navigate = useNavigate();
   const { videoId } = useParams();
   const {
     videoState: { videos },
@@ -25,6 +26,9 @@ const SinglePageVideo = () => {
       } = await addLikeToVideos(encodedToken, video);
       dataDispatch({ type: "LIKE_VIDEO", payload: likes });
     } catch (error) {
+      if (error.request.status === 500) {
+        navigate("/login");
+      }
       console.log(error.message);
     }
   };
