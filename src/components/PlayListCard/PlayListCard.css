@@ -1,0 +1,52 @@
+.playlist-box {
+  width: 19rem;
+  height: 15rem;
+  color: var(--white);
+  margin: 1rem;
+  background-color: var(--light-black);
+}
+.playlist-img-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.playlist-banner {
+  width: 100%;
+}
+.video-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 100%;
+  background-color: var(--transparent-black-color);
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+.video-count span {
+  padding-right: 10px;
+}
+.playlist-box-footer {
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 5px;
+  margin-top: 1rem;
+  cursor: default;
+}
+.playlist-box-footer p {
+  font-size: 1.5rem;
+  width: 90%;
+  padding: 3px;
+}
+.ellipsis-text {
+  word-break: break-all;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+.delete-icon {
+  cursor: pointer;
+}
