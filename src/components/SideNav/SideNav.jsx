@@ -4,7 +4,7 @@ import {
   MdOutlineSubscriptions,
   MdOutlineWatchLater,
   MdOutlineHistory,
-} from "react-icons/md";
+} from "../../Utils/getIcons";
 import { BiLike } from "react-icons/bi";
 import "./SideNav.css";
 const SideNav = () => {
