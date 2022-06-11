@@ -1,5 +1,5 @@
-import { VideoCard } from "../../components";
-import { useVideo } from "../../Contexts";
+import { PlayListModel, VideoCard } from "../../components";
+import { useData, useVideo } from "../../Contexts";
 import { filterByCategories } from "../../Utils/filterByCategories";
 import "./ExplorePage.css";
 const ExplorePage = () => {
@@ -7,7 +7,7 @@ const ExplorePage = () => {
     videoDispatch,
     videoState: { categories, videos, categoryName },
   } = useVideo();
-
+  const { openPlayListModal } = useData();
   const filteredVideos = filterByCategories(categoryName, videos);
   return (
     <div>
@@ -35,6 +35,11 @@ const ExplorePage = () => {
           return <VideoCard key={video._id} video={video} />;
         })}
       </div>
+      {openPlayListModal && (
+        <div className="modal-open">
+          <PlayListModel />
+        </div>
+      )}
     </div>
   );
 };
