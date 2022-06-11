@@ -1,12 +1,12 @@
-import {
-  BiSearchAlt2,
-  BiBell,
-  BiMenu,
-  BiLogOutCircle,
-  BiLogInCircle,
-} from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
 import logoImg from "../../asserts/logo.png";
+import {
+  BiBell,
+  BiLogInCircle,
+  BiLogOutCircle,
+  BiMenu,
+  BiSearchAlt2,
+  CgProfile,
+} from "../../Utils/getIcons";
 import userAvatar from "../../asserts/user.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
