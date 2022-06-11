@@ -4,8 +4,10 @@ import {
   ExplorePage,
   HomePage,
   Login,
+  PlayListPage,
   Signup,
   SinglePageVideo,
+  SinglePlayList,
   WatchLaterPage,
 } from "../Pages";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -21,6 +23,8 @@ const RoutesPath = () => {
       <Route path="/" element={<ProtectedRoute />}>
         <Route path="/likes" element={<LikePage />} />
         <Route path="/watchlater" element={<WatchLaterPage />} />
+        <Route path="/playlist" element={<PlayListPage />} />
+        <Route path="/playlist/:playlistId" element={<SinglePlayList />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
