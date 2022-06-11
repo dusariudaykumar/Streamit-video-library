@@ -9,6 +9,7 @@
   --search-box: #1c62b9;
   --badge-color: #ff684c;
   --white: #ffffff;
+  --font-color: #ffffe8;
   --black: #000000;
   --title-text: #23203c;
   --body-text: #d1d0cf;
@@ -52,6 +53,7 @@
 body {
   background-color: var(--body-bg);
   font-family: "Roboto", sans-serif;
+  max-width: 100vw;
 }
 ul li {
   list-style: none;

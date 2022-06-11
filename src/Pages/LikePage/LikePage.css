@@ -1,0 +1,23 @@
+.pages-wrapper {
+  color: var(--white);
+  margin: 2rem;
+}
+.pages-wrapper h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.7rem;
+}
+.pages-wrapper h3 span::before {
+  content: "● ";
+}
+.pages-wrapper h3 span {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.likes-video-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}

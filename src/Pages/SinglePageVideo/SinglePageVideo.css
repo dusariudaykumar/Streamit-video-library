@@ -35,4 +35,8 @@
 }
 .like-icon {
   /* color: var(--primary); */
+  cursor: pointer;
+}
+.liked-color {
+  color: var(--primary);
 }

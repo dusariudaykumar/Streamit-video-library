@@ -6,7 +6,10 @@ import {
   Login,
   Signup,
   SinglePageVideo,
+  WatchLaterPage,
 } from "../Pages";
+import { ProtectedRoute } from "./ProtectedRoute";
+import { LikePage } from "../Pages/LikePage/LikePage";
 
 const RoutesPath = () => {
   return (
@@ -15,6 +18,10 @@ const RoutesPath = () => {
       <Route path="/home" element={<HomePage />} />
       <Route path="/video/:videoId" element={<SinglePageVideo />} />
       <Route path="/explore" element={<ExplorePage />} />
+      <Route path="/" element={<ProtectedRoute />}>
+        <Route path="/likes" element={<LikePage />} />
+        <Route path="/watchlater" element={<WatchLaterPage />} />
+      </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/mockman" element={<Mockman />} />

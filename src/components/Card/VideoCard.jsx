@@ -6,13 +6,23 @@ import { useNavigate } from "react-router-dom";
 import playImg from "../../asserts/play-img.svg";
 import "./VideoCard.css";
 import { useState } from "react";
-const VideoCard = ({ video }) => {
+import { findVideo } from "../../Utils/findVideo";
+import { useData } from "../../Contexts";
+
+const VideoCard = ({ video, addVideoToWatchLaterHandler }) => {
   const [showModal, setShowModal] = useState(false);
+
+  const {
+    dataState: { watchlater },
+    removeVideoFromWatchLaterHandler,
+  } = useData();
   const navigate = useNavigate();
   const { creator, title, views, _id, duration, published } = video;
   const videoClickHandler = () => {
     navigate(`/video/${_id}`);
   };
+
+  const isVideoInWatchLater = findVideo(_id, watchlater) ? true : false;
   return (
     <div className="card-container">
       <div className="img-container" onClick={() => videoClickHandler()}>
@@ -43,14 +53,21 @@ const VideoCard = ({ video }) => {
               onClick={() => setShowModal((prev) => !prev)}
             />
             {showModal && (
-              <ul className="video-modal-container">
-                <li>
-                  <MdOutlineWatchLater size="1.5rem" />
-                  <span>Watch Later</span>
-                </li>
+              <ul className="video-modal-container adjust-position">
+                {isVideoInWatchLater ? (
+                  <li onClick={() => removeVideoFromWatchLaterHandler(_id)}>
+                    <MdOutlineWatchLater size="1.5rem" />
+                    <span>Remove from Watch later</span>
+                  </li>
+                ) : (
+                  <li onClick={addVideoToWatchLaterHandler}>
+                    <MdOutlineWatchLater size="1.5rem" />
+                    <span>Save to Watch later</span>
+                  </li>
+                )}
                 <li>
                   <MdPlaylistAdd size="1.5rem" />
-                  <span>Add to playlist</span>
+                  <span>Save to playlist</span>
                 </li>
               </ul>
             )}

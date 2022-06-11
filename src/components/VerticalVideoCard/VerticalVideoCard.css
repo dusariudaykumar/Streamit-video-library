@@ -1,0 +1,54 @@
+.card-wrapper {
+  width: 40rem;
+  height: 5rem;
+  align-items: center;
+  gap: 6px;
+  margin: 2rem;
+  color: var(--white);
+}
+
+.video-main-wrapper {
+  gap: 4px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--body-border);
+  padding-bottom: 1rem;
+}
+.img-wrapper {
+  position: relative;
+  width: 15rem;
+}
+.thumbnail {
+  width: 100%;
+}
+.play-svg {
+  position: absolute;
+  left: 30%;
+  top: 22%;
+}
+.time-stamp {
+  position: absolute;
+  background-color: var(--black);
+  bottom: 1px;
+  padding: 2px;
+  right: 0;
+}
+.video-info-container {
+  margin-top: 4px;
+  align-self: flex-start;
+  gap: 8px;
+}
+.video-info-container p {
+  line-height: 1.3rem;
+  font-size: 1.1rem;
+  color: var(--font-color);
+}
+.video-info-container span {
+  color: var(--card-text-color);
+}
+.liked-menu-wrapper {
+  width: 16rem;
+  height: max-content;
+  padding: 5px;
+  right: 8px;
+  bottom: -3rem;
+}
