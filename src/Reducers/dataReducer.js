@@ -20,6 +20,25 @@ export const dataReducer = (state, { type, payload }) => {
         ...state,
         watchlater: payload,
       };
+    case "CREATE_PLAYLIST":
+      return {
+        ...state,
+        playlist: payload,
+      };
+    case "DELETE_PLAYLIST":
+      return {
+        ...state,
+        playlist: payload,
+      };
+    case "SET_VIDEO_TO_PLAYLIST":
+      return {
+        ...state,
+        playlist: state.playlist.map((playlist) => {
+          return playlist._id === payload._id
+            ? { ...playlist, videos: [...payload.videos] }
+            : playlist;
+        }),
+      };
     default:
       return state;
   }
