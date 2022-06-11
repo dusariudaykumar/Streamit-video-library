@@ -2,11 +2,12 @@ import { createContext, useReducer, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../custom-hooks/useToast";
 import { dataReducer } from "../Reducers";
-import { removeVideoFromWatchLater } from "../Services";
+import { addVideoToWatchLater, removeVideoFromWatchLater } from "../Services";
 import { useAuth } from "./auth-context";
 const initialState = {
   likes: [],
   watchlater: [],
+  playlist: [],
 };
 const DataContext = createContext();
 
@@ -17,6 +18,23 @@ const DataProvider = ({ children }) => {
     authState: { encodedToken },
   } = useAuth();
   const [dataState, dataDispatch] = useReducer(dataReducer, initialState);
+  // const [openPlayListModal, setOpenPlayListModal] = useState(false);
+  // add to watch later
+
+  const addVideoToWatchLaterHandler = async (video) => {
+    try {
+      const {
+        data: { watchlater },
+      } = await addVideoToWatchLater(encodedToken, video);
+      dataDispatch({ type: "ADD_TO_WATCH_LATER", payload: watchlater });
+      showToast("Added to Watchlater", "success");
+    } catch (error) {
+      if (error.request.status === 500) {
+        navigate("/login");
+      }
+      console.log(error.message);
+    }
+  };
 
   // remove from watch later
 
@@ -37,7 +55,12 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ dataState, dataDispatch, removeVideoFromWatchLaterHandler }}>
+      value={{
+        dataState,
+        dataDispatch,
+        removeVideoFromWatchLaterHandler,
+        addVideoToWatchLaterHandler,
+      }}>
       {children}
     </DataContext.Provider>
   );
