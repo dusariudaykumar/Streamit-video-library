@@ -33,18 +33,24 @@ const LikePage = () => {
         )}
       </h3>
       <hr />
-      <div className="likes-video-wrapper">
-        {likes.map((video, index) => {
-          return (
-            <VerticalVideoCard
-              key={video._id}
-              count={index + 1}
-              video={video}
-              removeLikeHandler={() => removeLikeHandler(video._id)}
-            />
-          );
-        })}
-      </div>
+      {count === 0 ? (
+        <div className="empty-placeholder-container">
+          <h5>No liked videos</h5>
+        </div>
+      ) : (
+        <div className="likes-video-wrapper">
+          {likes.map((video, index) => {
+            return (
+              <VerticalVideoCard
+                key={video._id}
+                count={index + 1}
+                video={video}
+                removeLikeHandler={() => removeLikeHandler(video._id)}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
