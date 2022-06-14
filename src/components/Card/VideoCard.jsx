@@ -2,10 +2,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import playImg from "../../asserts/play-img.svg";
 import { useState } from "react";
 import { findVideo } from "../../Utils/findVideo";
-import { useData } from "../../Contexts";
+import { useAuth, useData } from "../../Contexts";
 import { PlayListModel } from "../PlayListModel/PlayListModel";
 import { useOnClickOutside } from "../../Utils/onClickOutside";
 import {
+  BiBlock,
   BsThreeDotsVertical,
   FaCalendarAlt,
   IoIosCheckmarkCircle,
@@ -13,10 +14,21 @@ import {
   MdPlaylistAdd,
 } from "../../Utils/getIcons";
 import "./VideoCard.css";
+import {
+  addVideoToHistoryService,
+  removeVideoFromHistoryService,
+} from "../../Services";
+import { useToast } from "../../custom-hooks/useToast";
 
-const VideoCard = ({ video, path, removeVideoFromPlayListHandler }) => {
+const VideoCard = ({
+  video,
+  path,
+  removeVideoFromPlayListHandler,
+  historyPath,
+}) => {
   const location = useLocation();
   const [showModal, setShowModal] = useState(false);
+  const { showToast } = useToast();
   const videoModelRef = useOnClickOutside(
     () => setShowModal((prev) => !prev),
     showModal
@@ -25,8 +37,11 @@ const VideoCard = ({ video, path, removeVideoFromPlayListHandler }) => {
     dataState: { watchlater },
     removeVideoFromWatchLaterHandler,
     addVideoToWatchLaterHandler,
+    dataDispatch,
   } = useData();
-
+  const {
+    authState: { encodedToken, isAuth },
+  } = useAuth();
   const [openPlayListModal, setOpenPlayListModal] = useState(false);
   const openPlayListModelHandler = () => {
     setOpenPlayListModal(true);
@@ -40,8 +55,33 @@ const VideoCard = ({ video, path, removeVideoFromPlayListHandler }) => {
   const { creator, title, views, _id, duration, published } = video;
   const videoClickHandler = () => {
     navigate(`/video/${_id}`);
+    if (isAuth) {
+      addVideoToHistory();
+    }
+  };
+  const addVideoToHistory = async () => {
+    try {
+      const {
+        data: { history },
+      } = await addVideoToHistoryService(encodedToken, video);
+      dataDispatch({ type: "SET_HISTORY", payload: history });
+    } catch (error) {
+      showToast(error.message, "error");
+    }
   };
 
+  //
+  const removeVideoFromHistory = async (videoId) => {
+    try {
+      const {
+        data: { history },
+      } = await removeVideoFromHistoryService(encodedToken, videoId);
+      dataDispatch({ type: "SET_HISTORY", payload: history });
+      showToast("Removed from history", "success");
+    } catch (error) {
+      showToast(error.message, error);
+    }
+  };
   // check whether video in liked list or not
   const isVideoInWatchLater = findVideo(_id, watchlater) ? true : false;
 
@@ -96,6 +136,12 @@ const VideoCard = ({ video, path, removeVideoFromPlayListHandler }) => {
                   <li onClick={() => removeVideoFromPlayListHandler(_id)}>
                     <MdPlaylistAdd size="1.5rem" />
                     <span>Remove from playlist</span>
+                  </li>
+                )}
+                {location.pathname === historyPath && (
+                  <li onClick={() => removeVideoFromHistory(_id)}>
+                    <BiBlock size="1.5rem" />
+                    <span>Remove from history</span>
                   </li>
                 )}
               </ul>
