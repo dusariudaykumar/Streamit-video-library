@@ -192,7 +192,7 @@ export const videos = [
   {
     _id: "hrdf44z4VWo",
     title: "Stray - Gameplay Walkthrough | PS4 ",
-    creator: "PalyStation",
+    creator: "PlayStation",
     description:
       "Game Producer Swann talks about the world of Stray, as well as what to expect with gameplay and characters you'll come across as a cat. Coming early 2022 to PS5 and PS4.",
     views: "2.4M",
