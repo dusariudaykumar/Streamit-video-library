@@ -6,3 +6,4 @@ export { ExplorePage } from "./ExplorePage/ExplorePage";
 export { WatchLaterPage } from "./WatchLater/WatchLaterPage";
 export { PlayListPage } from "./PlayListPage/PlayListPage";
 export { SinglePlayList } from "./SinglePlayList/SinglePlayList";
+export { HistoryPage } from "./HistoryPage/HistoryPage";
