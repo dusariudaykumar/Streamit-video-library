@@ -15,6 +15,11 @@ export const videoReducer = (state, { type, payload }) => {
         ...state,
         categoryName: payload,
       };
+    case "SEARCH_QUERY":
+      return {
+        ...state,
+        searchQuerytext: payload,
+      };
     default:
       return state;
   }
