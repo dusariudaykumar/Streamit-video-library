@@ -16,6 +16,7 @@ export {
   BiMenu,
   BiLogOutCircle,
   BiLogInCircle,
+  BiBlock,
 } from "react-icons/bi";
 export { CgProfile } from "react-icons/cg";
 export { RiDeleteBin6Line } from "react-icons/ri";
