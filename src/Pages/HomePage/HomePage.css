@@ -21,3 +21,9 @@
   z-index: 99999;
   cursor: default;
 }
+.not-found-msg {
+  color: var(--font-color);
+  position: absolute;
+  right: 20%;
+  left: 50%;
+}
