@@ -20,21 +20,27 @@ const WatchLaterPage = () => {
         )}
       </h3>
       <hr />
-      <div className="likes-video-wrapper">
-        {watchlater.map((video, index) => {
-          return (
-            <VerticalVideoCard
-              key={video._id}
-              count={index + 1}
-              video={video}
-              pathname={location.pathname}
-              removeVideoFromWatchLaterHandler={() =>
-                removeVideoFromWatchLaterHandler(video._id)
-              }
-            />
-          );
-        })}
-      </div>
+      {count === 0 ? (
+        <div className="empty-placeholder-container">
+          <h5>No videos in Watchlater</h5>
+        </div>
+      ) : (
+        <div className="likes-video-wrapper">
+          {watchlater.map((video, index) => {
+            return (
+              <VerticalVideoCard
+                key={video._id}
+                count={index + 1}
+                video={video}
+                pathname={location.pathname}
+                removeVideoFromWatchLaterHandler={() =>
+                  removeVideoFromWatchLaterHandler(video._id)
+                }
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
