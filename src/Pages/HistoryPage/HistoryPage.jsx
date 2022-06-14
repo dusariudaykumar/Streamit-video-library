@@ -1,5 +1,5 @@
 import { VideoCard } from "../../components";
-import { MdDeleteOutline, MdPlaylistAdd } from "../../Utils/getIcons";
+import { MdDeleteOutline } from "../../Utils/getIcons";
 import { useAuth, useData } from "../../Contexts";
 import "./HistoryPage.css";
 import { clearAllHistoryService } from "../../Services";
