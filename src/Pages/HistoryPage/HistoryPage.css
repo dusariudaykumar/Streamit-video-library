@@ -1,0 +1,26 @@
+.history-page-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.page-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header-btn {
+  padding: 10px;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--black);
+  color: var(--font-color);
+  cursor: pointer;
+  gap: 10px;
+}
+.empty-placeholder-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50, -50);
+}
