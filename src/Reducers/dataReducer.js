@@ -39,6 +39,16 @@ export const dataReducer = (state, { type, payload }) => {
             : playlist;
         }),
       };
+    case "SET_HISTORY":
+      return {
+        ...state,
+        history: payload,
+      };
+    case "TOGGLE_MENU":
+      return {
+        ...state,
+        hideMenu: !state.hideMenu,
+      };
     default:
       return state;
   }
