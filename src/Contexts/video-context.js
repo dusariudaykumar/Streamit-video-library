@@ -6,6 +6,7 @@ const initialState = {
   videos: [],
   categories: [],
   categoryName: "All",
+  searchQuerytext: "",
 };
 const VideoContext = createContext();
 
