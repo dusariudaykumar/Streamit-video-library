@@ -14,6 +14,7 @@ const PlayListModel = ({
   video,
   setOpenPlayListModal,
   outSideClickCloseModelRef,
+  path,
 }) => {
   const navigate = useNavigate();
   const {
@@ -30,6 +31,9 @@ const PlayListModel = ({
 
   const createPlaylistHandler = async (e) => {
     e.preventDefault();
+    if (playlistTilte.length === 0) {
+      return showToast("Playlist name cannot be empty ", "error");
+    }
     try {
       const {
         data: { playlists },
@@ -66,21 +70,23 @@ const PlayListModel = ({
         />
       </div>
 
-      <div className="playlist-items flex-col">
-        {playlist.map(({ _id, title, videos }) => (
-          <label htmlFor={_id} key={_id}>
-            <input
-              onChange={() => addVideoToPlaylistHandler(_id)}
-              type="checkbox"
-              id={_id}
-              value={title}
-              checked={Boolean(findVideoInPlaylist(video._id, videos))}
-              className="playlist-check-box"
-            />
-            {title}
-          </label>
-        ))}
-      </div>
+      {path !== "/playlist" && (
+        <div className="playlist-items flex-col">
+          {playlist.map(({ _id, title, videos }) => (
+            <label htmlFor={_id} key={_id}>
+              <input
+                onChange={() => addVideoToPlaylistHandler(_id)}
+                type="checkbox"
+                id={_id}
+                value={title}
+                checked={Boolean(findVideoInPlaylist(video._id, videos))}
+                className="playlist-check-box"
+              />
+              {title}
+            </label>
+          ))}
+        </div>
+      )}
       <div className="modal-footer">
         {!openCreateNewPlayList ? (
           <button
