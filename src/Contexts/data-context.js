@@ -8,6 +8,8 @@ const initialState = {
   likes: [],
   watchlater: [],
   playlist: [],
+  history: [],
+  hideMenu: false,
 };
 const DataContext = createContext();
 
@@ -18,8 +20,6 @@ const DataProvider = ({ children }) => {
     authState: { encodedToken },
   } = useAuth();
   const [dataState, dataDispatch] = useReducer(dataReducer, initialState);
-  // const [openPlayListModal, setOpenPlayListModal] = useState(false);
-  // add to watch later
 
   const addVideoToWatchLaterHandler = async (video) => {
     try {
