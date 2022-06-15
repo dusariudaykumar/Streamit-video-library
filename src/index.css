@@ -20,6 +20,8 @@
   --chip-color: #373737;
   --chip-border: rgba(255, 255, 255, 0.1);
   --chip-hover: rgba(255, 255, 255, 0.2);
+  --border-color: #606060;
+  --transparent-black-color: rgba(0, 0, 0, 0.4);
   /* footer */
   --bg1: #191919;
   --body-border: #393750;
@@ -41,6 +43,7 @@
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 }
+
 .h1 {
   font-family: var(--font-family-sans-serif);
 }

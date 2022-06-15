@@ -1,9 +1,9 @@
 import "./VerticalVideoCard.css";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import { BsThreeDotsVertical, RiDeleteBin6Line } from "../../Utils/getIcons";
 import playImg from "../../asserts/play-img.svg";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useOnClickOutside } from "../../Utils/onClickOutside";
 
 const VerticalVideoCard = ({
   count,
@@ -13,16 +13,30 @@ const VerticalVideoCard = ({
   removeVideoFromWatchLaterHandler,
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const { creator, title, _id, duration } = video;
   const [showModal, setShowModal] = useState(false);
+  const outSideClickCloseModelRef = useOnClickOutside(
+    () => setShowModal((prev) => !prev),
+    showModal
+  );
   const showModelHandler = (e) => {
     e.stopPropagation();
     setShowModal((prev) => !prev);
   };
+  const playVideoHandler = (e, _id) => {
+    e.stopPropagation();
+    navigate(`/video/${_id}`);
+  };
   return (
-    <div className="card-wrapper flex" onClick={() => setShowModal(false)}>
+    <div
+      className="card-wrapper flex"
+      onClick={() => setShowModal(false)}
+      ref={outSideClickCloseModelRef}>
       {location.pathname !== pathname && <span>{count}</span>}
-      <div className="video-main-wrapper flex">
+      <div
+        className="video-main-wrapper flex"
+        onClick={(e) => playVideoHandler(e, _id)}>
         <div className="img-wrapper">
           <img
             className="thumbnail"

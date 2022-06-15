@@ -2,10 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
   ExplorePage,
+  HistoryPage,
   HomePage,
   Login,
+  PlayListPage,
   Signup,
   SinglePageVideo,
+  SinglePlayList,
   WatchLaterPage,
 } from "../Pages";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -21,6 +24,9 @@ const RoutesPath = () => {
       <Route path="/" element={<ProtectedRoute />}>
         <Route path="/likes" element={<LikePage />} />
         <Route path="/watchlater" element={<WatchLaterPage />} />
+        <Route path="/playlist" element={<PlayListPage />} />
+        <Route path="/playlist/:playlistId" element={<SinglePlayList />} />
+        <Route path="/history" element={<HistoryPage />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />

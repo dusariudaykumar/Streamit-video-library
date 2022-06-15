@@ -1,30 +1,92 @@
-import { IoIosCheckmarkCircle } from "react-icons/io";
-import { MdOutlineWatchLater, MdPlaylistAdd } from "react-icons/md";
-import { FaCalendarAlt } from "react-icons/fa";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import playImg from "../../asserts/play-img.svg";
-import "./VideoCard.css";
 import { useState } from "react";
 import { findVideo } from "../../Utils/findVideo";
-import { useData } from "../../Contexts";
+import { useAuth, useData } from "../../Contexts";
+import { PlayListModel } from "../PlayListModel/PlayListModel";
+import { useOnClickOutside } from "../../Utils/onClickOutside";
+import {
+  BiBlock,
+  BsThreeDotsVertical,
+  FaCalendarAlt,
+  IoIosCheckmarkCircle,
+  MdOutlineWatchLater,
+  MdPlaylistAdd,
+} from "../../Utils/getIcons";
+import "./VideoCard.css";
+import {
+  addVideoToHistoryService,
+  removeVideoFromHistoryService,
+} from "../../Services";
+import { useToast } from "../../custom-hooks/useToast";
 
-const VideoCard = ({ video, addVideoToWatchLaterHandler }) => {
+const VideoCard = ({
+  video,
+  path,
+  removeVideoFromPlayListHandler,
+  historyPath,
+}) => {
+  const location = useLocation();
   const [showModal, setShowModal] = useState(false);
-
+  const { showToast } = useToast();
+  const videoModelRef = useOnClickOutside(
+    () => setShowModal((prev) => !prev),
+    showModal
+  );
   const {
     dataState: { watchlater },
     removeVideoFromWatchLaterHandler,
+    addVideoToWatchLaterHandler,
+    dataDispatch,
   } = useData();
+  const {
+    authState: { encodedToken, isAuth },
+  } = useAuth();
+  const [openPlayListModal, setOpenPlayListModal] = useState(false);
+  const openPlayListModelHandler = () => {
+    setOpenPlayListModal(true);
+    setShowModal(false);
+  };
+  const outSideClickCloseModelRef = useOnClickOutside(() =>
+    setOpenPlayListModal(false)
+  );
+
   const navigate = useNavigate();
   const { creator, title, views, _id, duration, published } = video;
   const videoClickHandler = () => {
     navigate(`/video/${_id}`);
+    if (isAuth) {
+      addVideoToHistory();
+    }
+  };
+  const addVideoToHistory = async () => {
+    try {
+      const {
+        data: { history },
+      } = await addVideoToHistoryService(encodedToken, video);
+      dataDispatch({ type: "SET_HISTORY", payload: history });
+    } catch (error) {
+      showToast(error.message, "error");
+    }
   };
 
+  //
+  const removeVideoFromHistory = async (videoId) => {
+    try {
+      const {
+        data: { history },
+      } = await removeVideoFromHistoryService(encodedToken, videoId);
+      dataDispatch({ type: "SET_HISTORY", payload: history });
+      showToast("Removed from history", "success");
+    } catch (error) {
+      showToast(error.message, error);
+    }
+  };
+  // check whether video in liked list or not
   const isVideoInWatchLater = findVideo(_id, watchlater) ? true : false;
+
   return (
-    <div className="card-container">
+    <div className="card-container" ref={videoModelRef}>
       <div className="img-container" onClick={() => videoClickHandler()}>
         <img
           className="video-img "
@@ -60,20 +122,42 @@ const VideoCard = ({ video, addVideoToWatchLaterHandler }) => {
                     <span>Remove from Watch later</span>
                   </li>
                 ) : (
-                  <li onClick={addVideoToWatchLaterHandler}>
+                  <li onClick={() => addVideoToWatchLaterHandler(video)}>
                     <MdOutlineWatchLater size="1.5rem" />
                     <span>Save to Watch later</span>
                   </li>
                 )}
-                <li>
-                  <MdPlaylistAdd size="1.5rem" />
-                  <span>Save to playlist</span>
-                </li>
+                {location.pathname !== path ? (
+                  <li onClick={() => openPlayListModelHandler()}>
+                    <MdPlaylistAdd size="1.5rem" />
+                    <span>Save to playlist</span>
+                  </li>
+                ) : (
+                  <li onClick={() => removeVideoFromPlayListHandler(_id)}>
+                    <MdPlaylistAdd size="1.5rem" />
+                    <span>Remove from playlist</span>
+                  </li>
+                )}
+                {location.pathname === historyPath && (
+                  <li onClick={() => removeVideoFromHistory(_id)}>
+                    <BiBlock size="1.5rem" />
+                    <span>Remove from history</span>
+                  </li>
+                )}
               </ul>
             )}
           </div>
         </div>
       </div>
+      {openPlayListModal && (
+        <div className="modal-open">
+          <PlayListModel
+            outSideClickCloseModelRef={outSideClickCloseModelRef}
+            video={video}
+            setOpenPlayListModal={setOpenPlayListModal}
+          />
+        </div>
+      )}
     </div>
   );
 };

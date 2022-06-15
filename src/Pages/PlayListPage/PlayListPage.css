@@ -1,0 +1,10 @@
+.playlist-page-wrapper {
+  flex-wrap: wrap;
+}
+/* single-playlistpage */
+.single-playlist-page-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 10px;
+}

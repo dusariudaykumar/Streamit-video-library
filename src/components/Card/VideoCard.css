@@ -81,17 +81,16 @@
 }
 .video-modal-container {
   position: absolute;
-
   z-index: 9999;
   width: 15rem;
-  height: 5.2rem;
+  height: auto;
   padding: 4px;
   background-color: var(--black);
   border-radius: 4px;
 }
 .adjust-position {
-  right: 10px;
-  bottom: -5rem;
+  right: -10px;
+  bottom: 0;
 }
 .video-modal-container li {
   display: inline-flex;
