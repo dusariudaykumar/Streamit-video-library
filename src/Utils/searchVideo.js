@@ -1,5 +1,4 @@
 export const searchVideos = (searchText, videos) => {
-  console.log(searchText);
   if (searchText) {
     return videos.filter(
       (video) =>
